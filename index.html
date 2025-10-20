@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>2048 Globant</title>
+	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<header class="header">
+			<h1>2048 MDF</h1>
+	</header>
+	<main class="game2048">
+		<nav class="bar-card">
+			<button id="newgame" class="new-game">New Game</button>
+			<button class="options">Options</button>
+			<button class="level">Level</button>
+			<button class="ranking">Ranking</button>
+		</nav>
+		<section class="main-card">
+			<div class="board-game">
+				<div class="grid">
+					<div class="box"></div><div class="box"></div>
+					<div class="box"></div><div class="box"></div>
+					<div class="box"></div><div class="box"></div>
+					<div class="box"></div><div class="box"></div>
+					<div class="box"></div><div class="box"></div>
+					<div class="box"></div><div class="box"></div>
+					<div class="box"></div><div class="box"></div>
+					<div class="box"></div><div class="box"></div>
+				</div>
+
+				<div class="tiles" id="tiles"></div>
+			</div>
+		</section>
+	</main>
+
+	 <footer class="footer">
+    <small>Telefonica 42 Malaga by Globant</small>
+	 </footer>
+
+	 <script src="engine.js" defer></script>
+	<script src="aux.js" defer></script>
+	<script src="events.js" defer></script>
+
+</body>
+</html>
