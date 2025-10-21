@@ -1,61 +1,69 @@
 //AUX.JS
 // to mergear one row to the left 2048 RULE!
 function mergeLeft(row) {
-  let a = row.filter(v => v !== 0);           
-  for (let i = 0; i < a.length - 1; i++) {
-    if (a[i] === a[i + 1]) {
-      a[i] *= 2;                    
-      a[i + 1] = 0;
-      score += a[i]; 
-    }
-  }
-  a = a.filter(v => v !== 0);
-  while (a.length < SIZE)
-    a.push(0);
-  return a;
-}
 
+	let filteredRow = row.filter(value => value !== 0);
+
+	for (let index = 0; index < filteredRow.length - 1; index++) {
+		if (filteredRow[index] === filteredRow[index + 1]) {
+			filteredRow[index] *= 2;
+			filteredRow[index + 1] = 0;
+			score += filteredRow[index];
+		}
+	}
+	filteredRow = filteredRow.filter(value => value !== 0);
+	while (filteredRow.length < SIZE) {
+		filteredRow.push(0);
+	}
+	return filteredRow;
+}
 
 // function to flip grid rows and cols
-function transpose(g) {
-  const out = makeEmptyGrid();
-  for (let r = 0; r < SIZE; r++)
-    for (let c = 0; c < SIZE; c++)
-      out[c][r] = g[r][c];
-  return out;
+function transpose(grid) {
+
+	const transposed = emptySizeArray();
+	for (let row = 0; row < SIZE; row++) {
+		for (let col = 0; col < SIZE; col++) {
+			transposed[col][row] = grid[row][col];
+		}
+	}
+	return transposed;
 }
 
-
 // reverse every row (to move right or down)
-function reverseRows(g) {
-  return g.map(row => [...row].reverse());
+function reverseRows(grid) {
+	
+	return grid.map(row => [...row].reverse());
 }
 
 // move tiles depending the direction we are going or we ar goint to to press
-function move(dir) {
-  const before = JSON.stringify(grid);
+function move(direction) {
 
-  if (dir === 'left') {
-    for (let r = 0; r < SIZE; r++)
-      grid[r] = mergeLeft(grid[r]);
-  } else if (dir === 'right') {
-    grid = reverseRows(grid);
-    for (let r = 0; r < SIZE; r++)
-      grid[r] = mergeLeft(grid[r]);
-    grid = reverseRows(grid);
-  } else if (dir === 'up') {
-    grid = transpose(grid);
-    for (let r = 0; r < SIZE; r++)
-      grid[r] = mergeLeft(grid[r]);
-    grid = transpose(grid);
-  } else if (dir === 'down') {
-    grid = transpose(grid);
-    grid = reverseRows(grid);
-    for (let r = 0; r < SIZE; r++)
-      grid[r] = mergeLeft(grid[r]);
-    grid = reverseRows(grid);
-    grid = transpose(grid);
-  }
-
-  return JSON.stringify(grid) !== before;
+	const previousState = JSON.stringify(grid);
+	if (direction === 'left') {
+		for (let row = 0; row < SIZE; row++) {
+			grid[row] = mergeLeft(grid[row]);
+		}
+	} else if (direction === 'right') {
+		grid = reverseRows(grid);
+		for (let row = 0; row < SIZE; row++) {
+			grid[row] = mergeLeft(grid[row]);
+		}
+		grid = reverseRows(grid);
+	} else if (direction === 'up') {
+		grid = transpose(grid);
+		for (let row = 0; row < SIZE; row++) {
+			grid[row] = mergeLeft(grid[row]);
+		}
+		grid = transpose(grid);
+	} else if (direction === 'down') {
+		grid = transpose(grid); 
+		grid = reverseRows(grid);
+		for (let row = 0; row < SIZE; row++) {
+			grid[row] = mergeLeft(grid[row]);
+		}
+		grid = reverseRows(grid);
+		grid = transpose(grid);
+	}
+	return JSON.stringify(grid) !== previousState;
 }
