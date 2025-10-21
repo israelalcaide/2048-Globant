@@ -13,12 +13,12 @@
 	margin: 2rem auto;
 	background: #191818;
 	border-radius: 2rem;
-	box-shadow: 0 0.5rem 0.5rem rgba(164, 10, 10, 0.976);
+	box-shadow: 0 0.5rem 0.5rem rgba(156, 17, 17, 0.976);
 	text-align: center;
 	padding: 0.5rem 0;
 	font-size: 1.5rem;
-	text-shadow: 1px 1px 0px #b70808, -1px -1px 0px #ebe6e6, 2px -2px 0px #e8e4e4, -2px 2px 0px #e9e7e7;
-	background: linear-gradient(0.0deg, #020202, #020202, #020202, #000000, #f10404 ,#020202,  #020202, #020202, #000000); color:#171717;
+	text-shadow: 1px 1px 0px #b70808, -1px -1px 0px #f6f6f6, 2px -2px 0px #e8e4e4, -2px 2px 0px #e9e7e7;
+	background: linear-gradient(0.0deg, #020202, #020202, #020202, #000000, #c61313 ,#020202,  #020202, #020202, #000000); color:#171717;
 }
 
 .game2048 {
@@ -107,7 +107,9 @@
 .box {
 	background: linear-gradient(180deg, #e4d0ac, #e8d9bb);
 	border-radius: 0.5rem;
+
 }
+
 
 .tiles {
 	position: absolute;
@@ -125,6 +127,11 @@
   100% { transform: scale(1); }
 }*/
 
+@keyframes golden-border {
+  0%   { border: 2px solid gold; box-shadow: 0 0 10px gold; }
+  100% { border: 1px solid transparent; box-shadow: none; }
+}
+
 .tile {
 	position: absolute;
 	top: 0;
@@ -138,24 +145,28 @@
 	font-weight: bold;
 	font-size: 1.5rem;
 	color: rgb(252, 252, 252);
-	transition: transform 600ms ease;
+	transition: transform 300ms ease, opacity 200ms ease;
 	text-shadow: 0 1px 0 rgba(240, 233, 233, 0.25);
 	box-shadow: 1px 1px 1px rgb(246, 197, 2), inset 0 1px 0 rgb(4, 4, 4);
-	animation: tile-pop 500ms ease;
+	/* animation: tile-pop 500ms ease; */
 }
 
-.tile-2    { background: linear-gradient(135deg, #ffe0c5, #fad1b0); color:#171717; }
-.tile-4    { background: linear-gradient(135deg, #f9c785, #f8b263); color:#171717; }
-.tile-8    { background: linear-gradient(135deg, #fa8971, #f96d4d); color:#101010; }
-.tile-16   { background: linear-gradient(135deg, #47b9ff, #0196f9); color:#0b0b0b; }
-.tile-32   { background: linear-gradient(135deg, #74ea56, #33c317); color:#0b0b0b; }
-.tile-64   { background: linear-gradient(135deg, #fff26c, #f6e03b); color:#3a3a3a; }
+.tile-2    { background: linear-gradient(135deg, #ffe0c5, #fad1b0, #b88010); color:#171717; }
+.tile-4    { background: linear-gradient(135deg, #f9c785, #f8b263, #f37b03); color:#171717; }
+.tile-8    { background: linear-gradient(135deg, #fa8971, #f96d4d, #e92727); color:#101010; }
+.tile-16   { background: linear-gradient(135deg, #47b9ff, #0196f9, #3e0bf7); color:#0b0b0b; }
+.tile-32   { background: linear-gradient(135deg, #74ea56, #33c317, #051045); color:#e8e1e1; }
+.tile-64   { background: linear-gradient(135deg, #fff26c, #f6e03b, #cdc4b7); color:#111112; }
 .tile-128  { background: linear-gradient(135deg, #ff41d6, #f30dbd); color:#fcb502; font-size:1.3rem; }
 .tile-256  { background: linear-gradient(135deg, #ff5a5a, #ff0000); color:#fbfbfb; font-size:1.3rem; }
 .tile-512  { background: linear-gradient(135deg, #f8dc70, #edc850); color:#222; font-size:1.2rem; }
 .tile-1024 { background: linear-gradient(135deg, #f8d64c, #edc53f); color:#222; font-size:1.1rem; }
 .tile-2048 { background: linear-gradient(135deg, #f8d13a, #edc22e); color:#222; font-size:1.1rem; }
 
+/* Borde dorado para fichas nuevas */
+.new-tile {
+	animation: golden-border 0.10s ease-out;
+}
 
 .hud {
 	max-width: 50rem;
@@ -214,3 +225,39 @@
 	background-color: #2d43b3;
 	text-shadow: 2px 2px 0px #000000, -2px -2px 0px #000000, 2px -2px 0px #000000, -2px 2px 0px #000000;
 }
+
+/* Game Over Overlay */
+.gameover {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.8);
+	display: grid;
+	place-items: center;
+	z-index: 1000;
+}
+
+.gameover.hidden { display: none; }
+
+.gameover-content {
+	background: #2c2a2a;
+	padding: 2rem;
+	border-radius: 2rem;
+	text-align: center;
+	border: 2px solid #a40a0a;
+	color: #f2f3f5;
+	font-family: 'Press Start 2P', monospace;
+}
+
+.gameover-btn {
+	padding: 0.8rem 1.5rem;
+	background: #a48b73;
+	border: none;
+	border-radius: 0.6rem;
+	color: #f2f3ff;
+	font-family: inherit;
+	font-size: 0.7rem;
+	cursor: pointer;
+	margin-top: 1rem;
+}
+
+.gameover-btn:hover { background: #a9270d; color: #ff9c07; }

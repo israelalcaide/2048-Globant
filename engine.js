@@ -66,3 +66,38 @@ function updateDisplay() {
 		movesElement.textContent = moves;
 }
 
+function isGameOver() {
+    for (let row = 0; row < SIZE; row++) {
+        for (let col = 0; col < SIZE; col++) {
+            if (grid[row][col] === 0) {
+                return false;
+            }
+        }
+    }
+    
+    for (let row = 0; row < SIZE; row++) {
+        for (let col = 0; col < SIZE; col++) {
+            const current = grid[row][col];
+            if (col < SIZE - 1 && grid[row][col + 1] === current) {
+                return false;
+            }
+            if (row < SIZE - 1 && grid[row + 1][col] === current) {
+                return false;
+            }
+        }
+    }
+    
+    return true;
+}
+
+function hasWon() {
+	for (let row = 0; row < SIZE; row++) {
+		for (let col = 0; col < SIZE; col++) {
+			if (grid[row][col] === 2048) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
