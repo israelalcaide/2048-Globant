@@ -1,4 +1,4 @@
-
+//AUX.JS
 // to mergear one row to the left 2048 RULE!
 function mergeLeft(row) {
   let a = row.filter(v => v !== 0);           
@@ -10,7 +10,8 @@ function mergeLeft(row) {
     }
   }
   a = a.filter(v => v !== 0);
-  while (a.length < SIZE) a.push(0);
+  while (a.length < SIZE)
+    a.push(0);
   return a;
 }
 
@@ -35,19 +36,23 @@ function move(dir) {
   const before = JSON.stringify(grid);
 
   if (dir === 'left') {
-    for (let r = 0; r < SIZE; r++) grid[r] = mergeLeft(grid[r]);
+    for (let r = 0; r < SIZE; r++)
+      grid[r] = mergeLeft(grid[r]);
   } else if (dir === 'right') {
     grid = reverseRows(grid);
-    for (let r = 0; r < SIZE; r++) grid[r] = mergeLeft(grid[r]);
+    for (let r = 0; r < SIZE; r++)
+      grid[r] = mergeLeft(grid[r]);
     grid = reverseRows(grid);
   } else if (dir === 'up') {
     grid = transpose(grid);
-    for (let r = 0; r < SIZE; r++) grid[r] = mergeLeft(grid[r]);
+    for (let r = 0; r < SIZE; r++)
+      grid[r] = mergeLeft(grid[r]);
     grid = transpose(grid);
   } else if (dir === 'down') {
     grid = transpose(grid);
     grid = reverseRows(grid);
-    for (let r = 0; r < SIZE; r++) grid[r] = mergeLeft(grid[r]);
+    for (let r = 0; r < SIZE; r++)
+      grid[r] = mergeLeft(grid[r]);
     grid = reverseRows(grid);
     grid = transpose(grid);
   }

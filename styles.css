@@ -80,55 +80,55 @@
 }
 
 .board-game {
-  position: relative;
-  width: min(400px, 90vw);
-  aspect-ratio: 1;
-  padding: 1rem;
-  box-sizing: border-box;
-  background: #2c2a2a;
-  border-radius: 1rem;
+	position: relative;
+	width: min(400px, 90vw);
+	aspect-ratio: 1;
+	padding: 1rem;
+	box-sizing: border-box;
+	background: #2c2a2a;
+	border-radius: 1rem;
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 0.2rem;
-  width: 100%;
-  height: 100%;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+	gap: 0.2rem;
+	width: 100%;
+	height: 100%;
 }
 
 .box {
-  background: linear-gradient(180deg, #e4d0ac, #e8d9bb);
-  border-radius: 0.5rem;
+	background: linear-gradient(180deg, #e4d0ac, #e8d9bb);
+	border-radius: 0.5rem;
 }
 
 .tiles {
-  position: absolute;
-  inset: 1rem;            
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 0.2rem;             
-  pointer-events: none;
+	position: absolute;
+	inset: 1rem;            
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+	gap: 0.2rem;             
+	pointer-events: none;
 }
 .tile {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: calc((100% - (0.2rem * 3)) / 4);
-  aspect-ratio: 1;
-  border-radius: 0.5rem;
-  background: #f86b53;
-  display: grid;
-  place-items: center;
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: rgb(252, 252, 252);
-  transition: transform 120ms ease;
-  box-shadow: 0 10px 18px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.25);
-  text-shadow: 0 1px 0 rgba(58, 52, 52, 0.25);
-  animation: tile-pop 160ms ease;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: calc((100% - (0.2rem * 3)) / 4);
+	aspect-ratio: 1;
+	border-radius: 0.5rem;
+	background: #f86b53;
+	display: grid;
+	place-items: center;
+	font-weight: bold;
+	font-size: 1.5rem;
+	color: rgb(252, 252, 252);
+	transition: transform 120ms ease;
+	box-shadow: 0 10px 18px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.25);
+	text-shadow: 0 1px 0 rgba(58, 52, 52, 0.25);
+	animation: tile-pop 160ms ease;
 }
 
 .tile-2    { background: linear-gradient(135deg, #ffe0c5, #fad1b0); color:#171717; }
@@ -143,6 +143,56 @@
 .tile-1024 { background: linear-gradient(135deg, #f8d64c, #edc53f); color:#222; font-size:1.1rem; }
 .tile-2048 { background: linear-gradient(135deg, #f8d13a, #edc22e); color:#222; font-size:1.1rem; }
 
+
+.hud {
+	max-width: 50rem;
+	margin-top: 2rem;
+	gap: 1.5rem;
+	display: grid;
+	align-items: center;
+	grid-template-columns: repeat(2, 1fr);
+
+}
+
+.stat {
+	background: #2c2a2a;
+	border-radius: 1rem;
+	padding: 1rem 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-family: 'Press Start 2P', monospace;
+	color: #f5f5f7;
+	text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+	
+
+}
+
+.stat .label {
+	font-size: 0.8rem;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	border-radius: 1rem;
+}
+
+.stat #score {
+	font-size: 1rem;
+	padding: 0.4rem;
+	text-align: center;
+	color:rgb(252, 252, 252);background: linear-gradient(135deg, #f8d13a, #edc22e); color:#222; font-size:1.1rem;
+	border-radius: 1rem;
+
+}
+
+.stat #moves {
+	font-size: 1rem;
+	padding: 0.4rem;
+	text-align: center;
+	color:rgb(252, 252, 252);background: linear-gradient(135deg, #f8d13a, #edc22e); color:#222; font-size:1.1rem;
+	border-radius: 1rem;
+	
+}
+
 .footer {
 	font-size: 1rem;
 	color:rgb(252, 252, 252);
@@ -150,5 +200,4 @@
 	justify-content: right;
 	background-color: #2d43b3;
 	text-shadow: 2px 2px 0px #000000, -2px -2px 0px #000000, 2px -2px 0px #000000, -2px 2px 0px #000000;
-
 }

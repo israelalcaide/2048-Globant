@@ -1,6 +1,6 @@
+// events.js
 // main container for tiles (grid overlay)
 const tilesElement = document.getElementById('tiles');
-
 
 
 // draw all tiles on screen (sizes + positions)
@@ -19,7 +19,8 @@ function render() {
   for (let r = 0; r < SIZE; r++) {
     for (let c = 0; c < SIZE; c++) {
       const v = grid[r][c];
-      if (v <= 0) continue;
+      if (v <= 0)
+        continue;
 
       const el = document.createElement('div');
       el.className = `tile tile-${v}`;
@@ -30,6 +31,7 @@ function render() {
       tilesElement.appendChild(el);
     }
   }
+  updateHUD();
 }
 
 
@@ -37,6 +39,7 @@ function render() {
 function newGame() {
   grid = makeEmptyGrid();
   score = 0;
+  moves = 0;
   addRandomTile(grid);
   addRandomTile(grid);
   playing = true;
@@ -56,12 +59,17 @@ window.addEventListener('keydown', (e) => {
   if (!playing) return;
 
   let moved = false;
-  if (e.key === 'ArrowLeft')  moved = move('left');
-  else if (e.key === 'ArrowRight') moved = move('right');
-  else if (e.key === 'ArrowUp') moved = move('up');
-  else if (e.key === 'ArrowDown') moved = move('down');
+  if (e.key === 'ArrowLeft')
+    moved = move('left');
+  else if (e.key === 'ArrowRight')
+    moved = move('right');
+  else if (e.key === 'ArrowUp')
+    moved = move('up');
+  else if (e.key === 'ArrowDown')
+    moved = move('down');
 
   if (moved) {
+    moves++;
     addRandomTile(grid);
     render();
   }
