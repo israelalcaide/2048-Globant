@@ -33,10 +33,6 @@ they merge into one. Try to reach 2048 Tron edition!
 git clone https://github.com/israelalcaide/2048-Globant.git
 ```
 
-2. Open `index.html` in your browser or run a local server:
-```bash
-python -m http.server 8000
-```
 
 ## Controls
 
