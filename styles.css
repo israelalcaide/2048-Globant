@@ -4,21 +4,27 @@
 	background: #ece6ca;
 	color: #f2f3f5;
 	/*text-shadow: 2px 2px 0px #000000, -2px -2px 0px #000000, 2px -2px 0px #000000, -2px 2px 0px #000000;*/
-
 }
 
 .header {
 	width: calc(100% - 2rem);
 	max-width: 50rem;
-	margin: 2rem auto;
+	margin: 1.2rem auto;
 	background: #191818;
 	border-radius: 2rem;
 	box-shadow: 0 0.5rem 0.5rem rgba(156, 17, 17, 0.976);
 	text-align: center;
-	padding: 0.5rem 0;
+	padding: 0.5rem 0.4rem;
 	font-size: 1.5rem;
 	text-shadow: 1px 1px 0px #b70808, -1px -1px 0px #f6f6f6, 2px -2px 0px #e8e4e4, -2px 2px 0px #e9e7e7;
-	background: linear-gradient(0.0deg, #020202, #020202, #020202, #000000, #c61313 ,#020202,  #020202, #020202, #000000); color:#171717;
+	background: linear-gradient(0.0deg, #020202, #020202, #020202, #000000, #c61313 , #020202, #020202, #000000); color:#171717;
+}
+
+header h3 {
+	margin-top: 0.2rem;
+	font-size: 1rem;
+	text-align: center;
+	text-shadow: 2px 2px 2px #0196f9;
 }
 
 .game2048 {
@@ -83,6 +89,11 @@
 	background: #060606;
 	border-radius: 2rem;
 	box-shadow: 0 0.2rem 0.2rem rgba(164, 10, 10, 0.976);
+	background-image: url('img1.jpeg');
+	background-size: contain;
+	background-position: center;
+	background-attachment: local;
+
 }
 
 .board-game {
@@ -93,6 +104,7 @@
 	box-sizing: border-box;
 	background: #000000;
 	border-radius: 1rem;
+
 }
 
 .grid {
@@ -127,8 +139,8 @@
   100% { transform: scale(1); }
 }*/
 
-@keyframes golden-border {
-  0%   { border: 2px solid gold; box-shadow: 0 0 10px gold; }
+@keyframes fashion-border {
+  0%   { border: 2px solid #000000; box-shadow: 4px 4px 6px 6px rgb(239, 6, 6); }
   100% { border: 1px solid transparent; box-shadow: none; }
 }
 
@@ -148,7 +160,6 @@
 	transition: transform 300ms ease, opacity 200ms ease;
 	text-shadow: 0 1px 0 rgba(240, 233, 233, 0.25);
 	box-shadow: 1px 1px 1px rgb(246, 197, 2), inset 0 1px 0 rgb(4, 4, 4);
-	/* animation: tile-pop 500ms ease; */
 }
 
 .tile-2    { background: linear-gradient(135deg, #ffe0c5, #fad1b0, #b88010); color:#171717; }
@@ -165,7 +176,7 @@
 
 /* Borde dorado para fichas nuevas */
 .new-tile {
-	animation: golden-border 0.10s ease-out;
+	animation: fashion-border 0.7s ease-out;
 }
 
 .hud {
@@ -226,7 +237,6 @@
 	text-shadow: 2px 2px 0px #000000, -2px -2px 0px #000000, 2px -2px 0px #000000, -2px 2px 0px #000000;
 }
 
-/* Game Over Overlay */
 .gameover {
 	position: fixed;
 	inset: 0;
@@ -260,4 +270,4 @@
 	margin-top: 1rem;
 }
 
-.gameover-btn:hover { background: #a9270d; color: #ff9c07; }
+.gameover-btn:hover { background: #a9270d; color: #f9a805; }

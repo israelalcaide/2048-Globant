@@ -68,7 +68,7 @@ function newGame() {
 	
 	setTimeout(() => {
 		newTilePositions = [];
-	}, 1500);
+	},1500);
 }
 
 function showGameOver() {
