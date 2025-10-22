@@ -82,10 +82,10 @@ header h3 {
 
 
 .main-card {
+	width: 95%;
 	display:flex;
 	justify-content: center;
-	/*margin: 0.2rem;
-	padding: 0.5rem;*/
+	margin: 1.5rem;
 	background: #060606;
 	border-radius: 2rem;
 	box-shadow: 0 0.2rem 0.2rem rgba(164, 10, 10, 0.976);
@@ -93,7 +93,6 @@ header h3 {
 	background-size: contain;
 	background-position: center;
 	background-attachment: local;
-
 }
 
 .board-game {
